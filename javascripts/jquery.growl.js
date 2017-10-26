@@ -135,6 +135,7 @@ Copyright 2015 Kevin Sylvestre
     };
 
     Growl.prototype.click = function(event) {
+      var anchor_top, target;
       if (this.settings.url != null) {
         event.preventDefault();
         event.stopPropagation();
@@ -143,7 +144,13 @@ Copyright 2015 Kevin Sylvestre
       if (this.settings.anchor != null) {
         event.preventDefault();
         event.stopPropagation();
-        return document.getElementById(this.settings.anchor).scrollIntoView();
+        target = $(this.settings.anchor);
+        anchor_top = this.settings.anchorTop || 0;
+        if (target.length > 0) {
+          $('html,body').animate({
+            scrollTop: target.offset().top + anchor_top
+          }, 400);
+        }
       }
     };
 

@@ -78,7 +78,12 @@ class Growl
     if @settings.anchor?
       event.preventDefault()
       event.stopPropagation()
-      document.getElementById(@settings.anchor).scrollIntoView()
+      target = $(@settings.anchor)
+      anchor_top = @settings.anchorTop or 0
+      if target.length > 0
+        $('html,body').animate { scrollTop: target.offset().top + anchor_top }, 400
+
+    return
 
   close: (event) =>
     event.preventDefault()

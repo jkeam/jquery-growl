@@ -42,7 +42,7 @@ Growling is easy:
 
     <script type="text/javascript">
       $.growl({ title: "Growl", message: "The kitten is awake!", url: "/kittens" });
-      $.growl({ title: "Growl", message: "The kitten is awake!", anchor: "our-cats" }); //will scroll so that element with id our-cats is in view
+      $.growl({ title: "Growl", message: "The kitten is awake!", anchor: "#our-cats" }); //will scroll so that element with id our-cats is in view
       $.growl.error({ message: "The kitten is attacking!" });
       $.growl.notice({ message: "The kitten is cute!" });
       $.growl.warning({ message: "The kitten is ugly!" });
