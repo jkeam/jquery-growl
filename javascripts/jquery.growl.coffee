@@ -75,6 +75,10 @@ class Growl
       event.preventDefault()
       event.stopPropagation()
       window.open(@settings.url)
+    if @settings.anchor?
+      event.preventDefault()
+      event.stopPropagation()
+      document.getElementById(@settings.anchor).scrollIntoView()
 
   close: (event) =>
     event.preventDefault()
